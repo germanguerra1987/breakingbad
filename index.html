@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breaking Bad Serie Completa</title>
+    <style>
+      :root {
+        --bg: #f3f3f1;
+        --panel: #ffffff;
+        --panel-soft: #eceae7;
+        --line: #d9d9d6;
+        --text: #111111;
+        --muted: #5d5d5d;
+        --shadow: rgba(17, 17, 17, 0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .hero {
+        padding: 64px 0 40px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        font-size: 0.76rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 5vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: -0.06em;
+        margin: 0 0 18px;
+      }
+
+      .lead {
+        max-width: 600px;
+        font-size: 1.08rem;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+
+      .top-home {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 20;
+      }
+
+      .primary-btn {
+        display: inline-block;
+        padding: 12px 18px;
+        font-weight: 700;
+        border: 1px solid var(--text);
+        background: var(--text);
+        color: var(--panel);
+        transition: all 0.2s ease;
+      }
+
+      .primary-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 18px var(--shadow);
+      }
+
+      .hero-visual {
+        background: linear-gradient(135deg, #f5f5f5 0%, #d7d7d7 100%);
+        border: 1px solid var(--line);
+        padding: 24px;
+      }
+
+      .article-preview {
+        background: var(--panel);
+        padding: 24px;
+        border: 1px solid var(--line);
+      }
+
+      .preview-image {
+        height: 210px;
+        background: linear-gradient(135deg, #1b1b1b 0%, #8e8e8e 100%);
+        margin-bottom: 18px;
+      }
+
+      .meta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .article-preview h3 {
+        margin: 10px 0 12px;
+        font-size: 1.6rem;
+        line-height: 1.15;
+      }
+
+      .article-preview p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      main {
+        padding: 20px 0 80px;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin: 24px 0 28px;
+      }
+
+      .section-header h2 {
+        font-size: clamp(1.8rem, 3vw, 2.6rem);
+        margin: 0;
+      }
+
+      .section-header a {
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .posts-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .post-card {
+        background: var(--panel);
+        border: 1px solid var(--line);
+        overflow: hidden;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .post-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 24px var(--shadow);
+      }
+
+      .post-image {
+        height: 220px;
+        background: linear-gradient(135deg, #bababa 0%, #e7e7e7 100%);
+      }
+
+      .post-card:nth-child(2) .post-image {
+        background: linear-gradient(135deg, #7a7a7a 0%, #f0f0f0 100%);
+      }
+
+      .post-card:nth-child(3) .post-image {
+        background: linear-gradient(135deg, #1d1d1d 0%, #d5d5d5 100%);
+      }
+
+      .post-content {
+        padding: 22px 20px 24px;
+      }
+
+      .post-content h3 {
+        font-size: 1.45rem;
+        margin: 10px 0 12px;
+        line-height: 1.2;
+      }
+
+      .post-content p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .feature {
+        margin-top: 54px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 28px;
+        background: var(--panel);
+        border: 1px solid var(--line);
+      }
+
+      .feature-image {
+        min-height: 360px;
+        background: linear-gradient(135deg, #2b2b2b 0%, #bdbdbd 100%);
+      }
+
+      .feature-copy {
+        padding: 32px 28px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .feature-copy h2 {
+        font-size: clamp(2rem, 3vw, 3rem);
+        line-height: 1.05;
+        margin: 12px 0 16px;
+      }
+
+      .feature-copy p {
+        color: var(--muted);
+        margin: 0 0 18px;
+      }
+
+      .newsletter {
+        margin-top: 58px;
+        padding: 30px;
+        background: var(--panel-soft);
+        border: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .newsletter h3 {
+        margin: 0;
+        font-size: clamp(1.5rem, 2vw, 2rem);
+      }
+
+      .newsletter-form {
+        display: flex;
+        width: min(500px, 100%);
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        padding: 15px 16px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        font-size: 1rem;
+      }
+
+      .newsletter-form button {
+        border: 1px solid var(--text);
+        background: var(--text);
+        color: var(--panel);
+        padding: 15px 20px;
+        cursor: pointer;
+        font-weight: 700;
+      }
+
+      .site-footer {
+        padding: 30px 0 50px;
+        color: var(--muted);
+        border-top: 1px solid var(--line);
+        margin-top: 30px;
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .feature,
+        .newsletter,
+        .posts-grid {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .newsletter {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .hero {
+          padding-top: 42px;
+        }
+
+        .hero-actions,
+        .newsletter-form,
+        .footer-inner {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .primary-btn,
+        .newsletter-form button {
+          width: 100%;
+          text-align: center;
+        }
+      }
+
+      body {
+        min-height: 100vh;
+        background: #fff;
+      }
+
+      .blog-layout {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 220px minmax(0, 1fr);
+      }
+
+      .sidebar {
+        min-height: 100vh;
+        padding: 32px 24px;
+        border-right: 1px solid var(--line);
+      }
+
+      .sidebar nav {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .sidebar a {
+        color: var(--text);
+      }
+
+      .sidebar a:hover {
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+
+      .entries {
+        min-height: 100vh;
+        padding: 32px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        align-content: start;
+        gap: 24px;
+      }
+
+      .season-group {
+        grid-column: 1 / -1;
+        display: grid;
+        gap: 16px;
+      }
+
+      .season-group h2 {
+        margin: 0;
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .season-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+        gap: 24px;
+      }
+
+      main#inicio {
+        padding: 0;
+      }
+
+      .entry {
+        min-width: 0;
+      }
+
+      .entry iframe,
+      .video-placeholder {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #f0f0f0;
+        border: 1px solid var(--line);
+      }
+
+      .entry iframe {
+        border: 0;
+      }
+
+      @media (max-width: 540px) {
+        .blog-layout {
+          grid-template-columns: 140px minmax(0, 1fr);
+        }
+
+        .sidebar {
+          padding: 24px 16px;
+        }
+
+        .entries {
+          padding: 24px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="blog-layout">
+      <aside class="sidebar" aria-label="Barra lateral">
+        <nav aria-label="Enlaces principales">
+          <a href="#inicio">Inicio</a>
+          <a href="#entradas">Entradas</a>
+        </nav>
+      </aside>
+      <main id="inicio">
+        <section class="entries" id="entradas" aria-label="Espacio para las entradas"></section>
+      </main>
+    </div>
+    <script>
+      const entries = document.querySelector("#entradas");
+      const embedUrls = {
+        1: "https://mega.nz/embed/uhYBnS5a#najgNYzv2vRzvAGEh5Iq0RNYL3vKkT9aYihm7kn5C78",
+        2: "https://mega.nz/embed/uopyRDgB#WY8aj59MlapIJnVSGdAj64-BvwXbIMUqCG6Qa3Hvg_g",
+        3: "https://mega.nz/embed/DgQXQZIY#Q7W_98KYeLBHBdcAco2S5RY9LjR84HfgdqGehsV_zPE",
+        4: "https://mega.nz/embed/L0xxwSyZ#GdVaGJTS0gvmqdFJq-wqan3Ap7rPp_6xC0N-26sMaGw",
+        5: "https://mega.nz/embed/Cgok2Z5b#cLXUXR8jbpHaDFVvZ4YX7oYuYDhc3HnhiJPQZ4c25-I",
+        6: "https://mega.nz/embed/O4IBhRZa#STdAFRlDDKyfbAYJitdu4HiIlJ23_hVBPv9E14KnV7Y",
+        7: "https://mega.nz/embed/60BmABJI#-zZe0Tcu-Qq9iv6HGp820I5kR8vKtU_07BTy4qpJXTU",
+      };
+
+      const createEntry = (number) => {
+        const entry = document.createElement("article");
+        const embedUrl = embedUrls[number];
+
+        entry.className = "entry";
+
+        if (embedUrl) {
+          const iframe = document.createElement("iframe");
+          iframe.src = embedUrl;
+          iframe.title = `Video de la entrada ${number}`;
+          iframe.loading = "lazy";
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+          iframe.allowFullscreen = true;
+          entry.append(iframe);
+        } else {
+          const placeholder = document.createElement("div");
+          placeholder.className = "video-placeholder";
+          placeholder.setAttribute("aria-label", `Espacio para el video ${number}`);
+          entry.append(placeholder);
+        }
+
+        return entry;
+      };
+
+      const addSeason = (title, start, end) => {
+        const seasonGroup = document.createElement("div");
+        seasonGroup.className = "season-group";
+
+        const seasonTitle = document.createElement("h2");
+        seasonTitle.textContent = title;
+        seasonGroup.append(seasonTitle);
+
+        const seasonGrid = document.createElement("div");
+        seasonGrid.className = "season-grid";
+
+        for (let number = start; number <= end; number += 1) {
+          seasonGrid.append(createEntry(number));
+        }
+
+        seasonGroup.append(seasonGrid);
+        entries.append(seasonGroup);
+      };
+
+      addSeason("Primera temporada", 1, 7);
+      addSeason("Segunda temporada", 8, 14);
+
+      for (let number = 15; number <= 62; number += 1) {
+        entries.append(createEntry(number));
+      }
+    </script>
+  </body>
+</html>
